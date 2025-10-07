@@ -23,18 +23,14 @@ public class FamousQuotes {
 
     }
     public static void call() {
-        System.out.println("Choose a number between 1 - 10");
+        System.out.println("Choose a number between 1-10");
         int answer = Integer.parseInt(scanner.nextLine());
-        int counter = 0;
-        for(int i = 0; i < quotes.length; i++) {
-            if(answer >= 1 && answer <= 10) {
-                System.out.println(quotes[answer - 1]);
-                counter++;
-                break;
-            }
-        }
-        if(counter == 0){
-            System.out.println("Number out of range");
+
+        try {
+            System.out.println(quotes[answer - 1]);
+        } catch (Exception e) {
+//            throw new RuntimeException(e);
+            System.out.println("out of range");
         }
     }
 }
