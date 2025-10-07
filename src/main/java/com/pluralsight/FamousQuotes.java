@@ -23,11 +23,25 @@ public class FamousQuotes {
 
     }
     public static void call() {
-        System.out.println("Choose a number between 1-10");
+        System.out.println("Enter 0 for a random quote, or choose from 1 - 10.");
         int answer = Integer.parseInt(scanner.nextLine());
 
         try {
-            System.out.println(quotes[answer - 1]);
+            if(answer == 0) {
+                System.out.println(quotes[(int) (Math.random() * 10)]);
+                System.out.println("Would you like to see more quotes? enter 'yes' or 'no'");
+                String quotesAgain = scanner.nextLine();
+                if(quotesAgain.equalsIgnoreCase("yes")) {
+                    call();
+                }
+            } else {
+                System.out.println(quotes[answer - 1]);
+                System.out.println("Would you like to see more quotes? enter 'yes' or 'no'");
+                String quotesAgain = scanner.nextLine();
+                if(quotesAgain.equalsIgnoreCase("yes")) {
+                    call();
+                }
+            }
         } catch (Exception e) {
 //            throw new RuntimeException(e);
             System.out.println("out of range");
